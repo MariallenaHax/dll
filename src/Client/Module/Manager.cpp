@@ -91,6 +91,7 @@
 #include "Modules/RawInputBuffer/RawInputBuffer.hpp"
 #include "Modules/JavaDynamicFOV/JavaDynamicFOV.hpp"
 #include "Modules/ItemUseDelayFix/ItemUseDelayFix.hpp"
+#include "Modules/AntiCrasher/AntiCrasher.hpp"
 
 #include "Modules/Mousestrokes/Mousestrokes.hpp"
 #include "Scripting/ScriptManager.hpp"
@@ -230,6 +231,7 @@ void ModuleManager::initialize() {
 	addModule<ViewModel>();
 	addModule<PotionHUD>();
 	addModule<FasterInventory>();
+	addModule<AntiCrasher>();
 	//addModule<MovableHUD>();
 	addModule<MovableScoreboard>();
 	addModule<MovableTitle>();
