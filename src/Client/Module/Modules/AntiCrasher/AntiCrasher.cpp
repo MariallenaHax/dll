@@ -30,8 +30,6 @@ void AntiCrasher::onPacketReceive(PacketEvent& event) {
         now = std::chrono::time_point_cast<std::chrono::milliseconds>(
             std::chrono::system_clock::now()
         ).time_since_epoch().count();
-        if (pkt->origin.type == CommandOriginType::Player)
-        {
             auto plname = pkt->command;
             if (std::find(bannedPlayers.begin(), bannedPlayers.end(), plname) != bannedPlayers.end()) {
                 event.setCancelled(true);
@@ -45,7 +43,6 @@ void AntiCrasher::onPacketReceive(PacketEvent& event) {
                 SendAnticrashMesssage(plname);
             }
             lastPacketTime[plname] = now;
-        }
     }
 }
 void AntiCrasher::SendAnticrashMesssage(std::string name)
