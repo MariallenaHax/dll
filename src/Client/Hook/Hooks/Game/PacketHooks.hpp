@@ -48,6 +48,9 @@ private:
     static void receiveCallbackAnimate(void *packetHandlerDispatcher, void *networkIdentifier, void *netEventCallback,
                                        const std::shared_ptr<Packet>& packet);
 
+    static void receiveCallbackCommandRequest(void *packetHandlerDispatcher, void *networkIdentifier, void *netEventCallback,
+                                       const std::shared_ptr<Packet>& packet);
+
 public:
 
     static inline void* NetworkIdentifier;
@@ -72,6 +75,7 @@ public:
     static inline receive receivePacketPlayerSkinOriginal = nullptr;
     static inline receive receivePacketLevelSoundEventOriginal = nullptr;
     static inline receive receivePacketAnimateOriginal = nullptr;
+    static inline receive receivePacketCommandRequestOriginal = nullptr;
 
     SendPacketHook() : Hook("sendPacket", GET_SIG_ADDRESS("LoopbackPacketSender::sendPacket")) {}
 

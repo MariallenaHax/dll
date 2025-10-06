@@ -127,6 +127,15 @@ void SendPacketHook::receiveCallbackAnimate(void *packetHandlerDispatcher, void 
     if (!event->isCancelled())
         receivePacketAnimateOriginal(packetHandlerDispatcher, networkIdentifier, netEventCallback, packet);
 }
+void SendPacketHook::receiveCallbackCommandRequest(void *packetHandlerDispatcher, void *networkIdentifier, void *netEventCallback,
+                                           const std::shared_ptr<Packet>& packet) {
+
+    SendPacketHook::setVariables(packetHandlerDispatcher, networkIdentifier, netEventCallback);
+    auto event = nes::make_holder<PacketEvent>(packet, packetHandlerDispatcher, networkIdentifier, netEventCallback);
+    eventMgr.trigger(event);
+    if (!event->isCancelled())
+        receivePacketCommandRequestOriginal(packetHandlerDispatcher, networkIdentifier, netEventCallback, packet);
+}
 
 void SendPacketHook::enableHook() {
     /*for (int num = 1; num <= (int)MinecraftPacketIds::PacketViolationWarning; num++) {
@@ -185,6 +194,10 @@ void SendPacketHook::enableHook() {
     std::shared_ptr<Packet> AnimatePacket = SDK::createPacket((int) MinecraftPacketIds::Animate);
     Memory::hookFunc((void *) AnimatePacket->packetHandler->vTable[1], (void *)receiveCallbackAnimate,
                      (void **) &receivePacketAnimateOriginal, "Animate ReceivePacketHook");
+
+    std::shared_ptr<Packet> CommandRequestPacket = SDK::createPacket((int) MinecraftPacketIds::CommandRequest);
+    Memory::hookFunc((void *) CommandRequestPacket->packetHandler->vTable[1], (void *)receiveCallbackCommandRequest,
+                     (void **) &receivePacketCommandRequestOriginal, "CommandRequest ReceivePacketHook");
 
     this->autoHook((void *) callback, (void **) &sendPacketOriginal);
 }

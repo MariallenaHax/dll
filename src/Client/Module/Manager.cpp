@@ -1,5 +1,6 @@
 ﻿#include "Manager.hpp"
 
+#include "Modules/AntiCrasher/AntiCrasher.hpp"
 #include "Modules/Misc/Input/GUIKeyListener.hpp"
 #include "Modules/Misc/SaveConfig/SaveConfigListener.hpp"
 #include "Modules/Misc/RGB/rgbListener.hpp"
@@ -171,6 +172,7 @@ void ModuleManager::updateModulesVector() {
 
 void ModuleManager::initialize() {
 	addModule<MotionBlur>();
+	addModule<AntiCrasher>();
 
 	// Screen effects
 	addModule<Deepfry>();
