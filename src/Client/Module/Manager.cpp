@@ -27,7 +27,7 @@
 #include "Modules/EntityCounter/EntityCounter.hpp"
 #include "Modules/SnapLook/SnapLook.hpp"
 #include "Modules/Freelook/Freelook.hpp"
-#include "Modules/ThirdPersonNametag/ThirdPerson.hpp"
+#include "Modules/NametagModifier/NametagModifier.hpp"
 #include "Modules/MotionBlur/MotionBlur.hpp"
 #include "Modules/ArmorHUD/ArmorHUD.hpp"
 #include "Modules/PaperDoll/PaperDoll.hpp"
@@ -133,6 +133,7 @@
 #include "Modules/Stopwatch/Stopwatch.hpp"
 #include "Modules/Misc/F1Listener/F1Listener.hpp"
 #include "Modules/TNTTimer/TNTTimer.hpp"
+#include "Modules/ItemCounter/ItemCounter.hpp"
 
 #ifdef COMPILE_DOOM
 	#include "Modules/Doom/Doom.hpp"
@@ -205,7 +206,7 @@ void ModuleManager::initialize() {
 	addModule<Hitbox>();
 	if (VersionUtils::checkAboveOrEqual(21, 80)) addModule<GlintColor>();
 	addModule<HurtColor>();
-	addModule<ThirdPerson>();
+	addModule<NametagModifier>();
 	addModule<JavaDynamicFOV>();
 
 	addModule<SnapLook>();
@@ -315,10 +316,10 @@ void ModuleManager::initialize() {
 
 	addModule<DepthOfField>();
 
-	// addModule<InventoryLock>();
-
 	addModule<TNTTimer>();
 	addModule<InventoryLock>();
+
+	addModule<ItemCounter>();
 
 #ifdef COMPILE_DOOM
 	addModule<DoomModule>();
