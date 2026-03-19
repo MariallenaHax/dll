@@ -1,11 +1,11 @@
 # Flarial Client
-Welcome to **Flarial Client**, the ultimate modded client designed specifically for Minecraft Bedrock Edition (MCBE). Flarial Client enhances your gameplay with a suite of tools and features that optimize performance, improve visual quality, and provide a smoother gaming experience. yo.
+Welcome to **Flarial Client**, the ultimate modded client designed specifically for Minecraft: Bedrock Edition (MCBE). Flarial Client enhances your gameplay with a suite of tools and features that optimize performance, improve visual quality, and provide a smoother gaming experience.
 ## Support us on Ko-Fi! https://ko-fi.com/flarialmc
 
 
 ## Installation Options
 
-Flarial Client is available in 2 forms:
+Flarial Client is available in two forms:
 
 ### Flarial Launcher (Recommended)
 - A user-friendly launcher that manages Flarial and other MCBE clients.
